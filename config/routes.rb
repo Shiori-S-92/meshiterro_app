@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get 'post_image/index'
   # get 'post_image/show'
   # get 'post_image/edit'
-  resources :post_images, only: [:new, :index, :show]
+  resources :post_images, only: [:new, :create, :index, :show]
 
   get 'homes/top'
   get "/homes/about" => "homes#about", as: "about"
