@@ -4,12 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :post_images, dependent: :destroy
-  has_many :post_comments, dependent: :destroy
-
-
   # profile_imageという名前でActiveStorageでプロフィール画像を保存できるように設定
   has_one_attached :profile_image
+
+  has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+
 
   def get_profile_image(width, height)
     unless profile_image.attached?
